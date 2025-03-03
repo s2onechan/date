@@ -40,11 +40,12 @@
             background-color: #ff66b2;
             color: white;
         }
-        .no {
-            background-color: #cccccc;
-            color: black;
-            position: relative;
-        }
+		.no {
+			background-color: #cccccc;
+			color: black;
+			position: absolute;
+			transition: 0.2s ease-in-out;
+		}
         #message {
             font-size: 18px;
             margin-top: 20px;
@@ -61,15 +62,18 @@
 
     <script>
         function showLove() {
-            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, reach out to me on <a href='fb://profile/dydybakaa' target='_blank'>Facebook</a>! 💌";
+            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, send me an <a href='sms:+84377790889'>SMS</a>! 💌";
         }
         
         function moveButton() {
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            document.getElementById('noBtn').style.left = `${x}px`;
-            document.getElementById('noBtn').style.top = `${y}px`;
-        }
+			let btn = document.getElementById('noBtn');
+			let maxX = window.innerWidth - btn.clientWidth;
+			let maxY = window.innerHeight - btn.clientHeight;
+			let x = Math.random() * maxX;
+			let y = Math.random() * maxY;
+			btn.style.left = `${x}px`;
+			btn.style.top = `${y}px`;
+		}
     </script>
 </body>
 </html>
