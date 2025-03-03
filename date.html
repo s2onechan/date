@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Confession Time ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
         body {
             text-align: center;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #ffe6f2;
+            background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTU5Nmd6Z2UxenlxNXlmMXhhNGw1ejJldDQ2aDZneHE0MHNwaWJoeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KjvlWLTmKqAww/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,22 +23,33 @@
             overflow: hidden;
         }
         .container {
-            width: 90%;
-            max-width: 400px;
+            width: 95%;
+            max-width: 450px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
-            text-shadow: 3px 3px 6px pink;
+            text-shadow: 4px 4px 8px pink;
+            font-family: 'Pacifico', cursive;
+            line-height: 1.4;
         }
         .btn {
-            padding: 12px 24px;
-            font-size: 18px;
+            padding: 14px 28px;
+            font-size: 20px;
             cursor: pointer;
             border: none;
-            border-radius: 12px;
-            margin: 10px;
+            border-radius: 15px;
+            margin: 12px;
+            font-family: 'Pacifico', cursive;
+            transition: transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: scale(1.1);
         }
         .yes {
             background-color: #ff66b2;
@@ -43,12 +58,10 @@
         .no {
             background-color: #cccccc;
             color: black;
-            position: absolute;
-            transition: 0.2s ease-in-out;
         }
         #message {
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 20px;
+            margin-top: 25px;
         }
     </style>
 </head>
@@ -56,30 +69,21 @@
     <div class="container">
         <h1>I've been thinking about this for a while... Will you make my heart the happiest by saying yes? 💕</h1>
         <button class="btn yes" onclick="showLove()">Yes ❤️</button>
-        <button class="btn no" id="noBtn" onmouseover="moveButton()">No 😢</button>
+        <button class="btn no" onclick="showNo()">No 😢</button>
         <h2 id="message"></h2>
     </div>
 
-    <audio id="loveSong">
-        <source src="https://docs.google.com/uc?export=download&id=1sTxlJxiPWQOQC_EteYrg2I7AcCsgIx6G" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <script>
         function showLove() {
-            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, send me an <a href='sms:+84377790889?body=Love%20u%20%3C3'>SMS</a>! 💌";
-            let song = document.getElementById('loveSong');
-            song.play();
+            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br><button class='btn' onclick=\"sendSMS('Love u <3')\">Send SMS 💌</button>";
         }
-        
-        function moveButton() {
-            let btn = document.getElementById('noBtn');
-            let maxX = window.innerWidth - btn.clientWidth;
-            let maxY = window.innerHeight - btn.clientHeight;
-            let x = Math.random() * maxX;
-            let y = Math.random() * maxY;
-            btn.style.left = `${x}px`;
-            btn.style.top = `${y}px`;
+
+        function showNo() {
+            document.getElementById('message').innerHTML = "The girl says no as yes hihi 💕<br><button class='btn' onclick=\"sendSMS('The girl says no as yes hihi')\">Send SMS 💌</button>";
+        }
+
+        function sendSMS(text) {
+            window.location.href = `sms:+84377790889?body=${encodeURIComponent(text)}`;
         }
     </script>
 </body>
