@@ -40,12 +40,12 @@
             background-color: #ff66b2;
             color: white;
         }
-		.no {
-			background-color: #cccccc;
-			color: black;
-			position: absolute;
-			transition: 0.2s ease-in-out;
-		}
+        .no {
+            background-color: #cccccc;
+            color: black;
+            position: absolute;
+            transition: 0.2s ease-in-out;
+        }
         #message {
             font-size: 18px;
             margin-top: 20px;
@@ -60,20 +60,27 @@
         <h2 id="message"></h2>
     </div>
 
+    <audio id="loveSong">
+        <source src="https://docs.google.com/uc?export=download&id=1sTxlJxiPWQOQC_EteYrg2I7AcCsgIx6G" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
         function showLove() {
-            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, send me an <a href='sms:+84377790889'>SMS</a>! 💌";
+            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, send me an <a href='sms:+84377790889?body=Love%20u%20%3C3'>SMS</a>! 💌";
+            let song = document.getElementById('loveSong');
+            song.play();
         }
         
         function moveButton() {
-			let btn = document.getElementById('noBtn');
-			let maxX = window.innerWidth - btn.clientWidth;
-			let maxY = window.innerHeight - btn.clientHeight;
-			let x = Math.random() * maxX;
-			let y = Math.random() * maxY;
-			btn.style.left = `${x}px`;
-			btn.style.top = `${y}px`;
-		}
+            let btn = document.getElementById('noBtn');
+            let maxX = window.innerWidth - btn.clientWidth;
+            let maxY = window.innerHeight - btn.clientHeight;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
     </script>
 </body>
 </html>
