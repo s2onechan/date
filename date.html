@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Confession Time ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px pink;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            margin: 10px;
+        }
+        .yes {
+            background-color: #ff66b2;
+            color: white;
+        }
+        .no {
+            background-color: #cccccc;
+            color: black;
+            position: relative;
+        }
+        #message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I've been thinking about this for a while... Will you make my heart the happiest by saying yes? 💕</h1>
+        <button class="btn yes" onclick="showLove()">Yes ❤️</button>
+        <button class="btn no" id="noBtn" onmouseover="moveButton()">No 😢</button>
+        <h2 id="message"></h2>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById('message').innerHTML = "Yay! I like you too! 😘💕<br>If you want to say something, reach out to me on <a href='fb://profile/dydybakaa' target='_blank'>Facebook</a>! 💌";
+        }
+        
+        function moveButton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            document.getElementById('noBtn').style.left = `${x}px`;
+            document.getElementById('noBtn').style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
